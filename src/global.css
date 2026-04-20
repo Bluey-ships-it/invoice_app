@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Colors — invoice design system */
+  --color-primary: #7c5dfa;
+  --color-primary-hover: #9277ff;
+  --color-navy: #252945;
+  --color-danger: #ec5757;
+  --color-danger-hover: #ff9797;
+  --color-muted: #dfe3fa;
+  --color-muted-blue: #7e88c3;
+
+  /* Surfaces */
+  --color-surface: #f8f8fb;
+  --color-surface-card: #ffffff;
+  --color-surface-dark: #141625;
+  --color-surface-card-dark: #1e2139;
+  --color-surface-input-dark: #252945;
+
+  /* Text */
+  --color-text-body: #888eb0;
+  --color-text-heading: #0c0e16;
+
+  /* Typography */
+  --font-sans: "League Spartan", sans-serif;
+
+  /* Shadows */
+  --shadow-card: 0px 10px 20px rgba(72, 84, 159, 0.1);
+  --shadow-card-dark: 0px 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Base */
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: var(--color-text-heading);
+  -webkit-font-smoothing: antialiased;
+}
+
+html.dark body {
+  background-color: var(--color-surface-dark);
+  color: var(--color-muted);
+}
