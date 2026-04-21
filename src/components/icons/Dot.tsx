@@ -1,5 +1,9 @@
-export default function Dot() {
-  return (
+interface Props {
+	fill: string;
+}
+
+export default function Dot({ fill }: Props) {
+	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width="8"
@@ -7,7 +11,7 @@ export default function Dot() {
 			viewBox="0 0 8 8"
 			fill="none"
 		>
-			<circle cx="4" cy="4" r="4" fill="#33D69F" />
+			<circle cx="4" cy="4" r="4" fill={fill} />
 		</svg>
 	);
 }

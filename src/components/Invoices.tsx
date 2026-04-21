@@ -1,13 +1,22 @@
-//import InvoicesEmptyState from "./InvoicesEmptyState";
+import invoices from "../constants/data";
+import InvoiceCard from "./InvoiceCard";
+import InvoiceCardMd from "./InvoiceCardMd";
 
-//import InvoiceCard from "./InvoiceCard";
-//import InvoiceCardMd from "./InvoiceCardMd";
-import ActionBtns from "./ViewInvoiceDetail/ActionBtns";
-
-export default function Invoices() {
+export default function InvoiceContainer() {
 	return (
-		<section className="flex justify-center items-center min-h-[70dvh]">
-			<ActionBtns/>
+		<section className="flex justify-center min-h-[70dvh]">
+			{/* Mobile */}
+			<div className="flex flex-col gap-4 md:hidden">
+				{invoices.map((invoice) => (
+					<InvoiceCard key={invoice.id} invoice={invoice} />
+				))}
+			</div>
+			{/* Desktop */}
+			<div className="hidden md:flex flex-col gap-4 w-full">
+				{invoices.map((invoice) => (
+					<InvoiceCardMd key={invoice.id} invoice={invoice} />
+				))}
+			</div>
 		</section>
 	);
 }
