@@ -1,3 +1,11 @@
+import GoBack from "../components/GoBack";
+import DetailsContainer from "../components/ViewInvoiceDetail/DetailsContainer";
+
 export default function InvoiceDetail() {
-	return <div>Invoice Detail</div>;
+	return (
+		<section>
+			<GoBack />
+			<DetailsContainer />
+		</section>
+	);
 }

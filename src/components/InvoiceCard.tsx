@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { type Invoice } from "../types/invoice.types";
 import DueDate from "./InvoiceCard/DueDate";
 import InvoiceId from "./InvoiceCard/InvoiceId";
@@ -10,9 +11,12 @@ interface Props {
 
 export default function InvoiceCard({ invoice }: Props) {
 	const total = invoice.itemList.reduce((sum, item) => sum + item.total, 0);
-	console.log(invoice.status);
+	const navigate = useNavigate();
 	return (
-		<div className="bg-surface-card dark:bg-surface-card-dark w-80 h-33.5 rounded-lg shadow-[0px_10px_10px_-10px_rgba(72,84,159,0.10)] p-6 flex flex-col gap-6">
+		<div
+			className="bg-surface-card dark:bg-surface-card-dark w-80 h-33.5 rounded-lg shadow-[0px_10px_10px_-10px_rgba(72,84,159,0.10)] p-6 flex flex-col gap-6 cursor-pointer"
+			onClick={() => navigate(`/invoices/${invoice.id}`)}
+		>
 			<div className="flex justify-between">
 				<InvoiceId id={invoice.id} />
 				<Name name={invoice.billTo.clientName} />

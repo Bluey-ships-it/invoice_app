@@ -32,7 +32,7 @@ const statusStyles: Record<
 export default function Status({ status }: Props) {
 	const { bg, text, fill, bgDark, textDark, fillDark } = statusStyles[status];
 	const { theme } = useTheme();
-	const themeFill = theme === "light" ? fill : fillDark;
+	const themeFill = theme === "dark" && fillDark ? fillDark : fill;
 	return (
 		<div
 			className={`w-26  h-10 flex justify-center items-center gap-2 rounded-md font-bold ${bg} ${text} ${bgDark} ${textDark}`}
