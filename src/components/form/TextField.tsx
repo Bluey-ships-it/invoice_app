@@ -30,11 +30,11 @@ export default function TextField({
 }: TextFieldProps) {
 	const inputClassName =
 		type === "number"
-			? `no-number-spinner h-12 w-full rounded-lg border bg-surface-input-dark/5 text-center text-sm font-bold text-text-heading placeholder:font-medium placeholder:text-muted-blue/70 outline-none transition-colors focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 dark:bg-surface-input-dark dark:text-white dark:placeholder:text-muted-blue/70 ${
-					error ? "border-danger bg-danger/5" : "border-transparent"
+			? `no-number-spinner h-12 w-full rounded-lg border border-muted bg-transparent text-center text-sm font-bold text-text-heading placeholder:font-medium placeholder:text-muted-blue/70 outline-none transition-colors focus-visible:border-primary dark:border-surface-input-dark dark:bg-transparent dark:text-white dark:placeholder:text-muted-blue/70 ${
+					error ? "border-danger" : ""
 				}`
-			: `h-12 w-full rounded-lg border bg-surface-input-dark/5 px-4 text-sm font-bold text-text-heading placeholder:font-medium placeholder:text-muted-blue/70 outline-none transition-colors focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 dark:bg-surface-input-dark dark:text-white dark:placeholder:text-muted-blue/70 ${
-					error ? "border-danger bg-danger/5" : "border-transparent"
+			: `h-12 w-full rounded-lg border border-muted bg-transparent px-4 text-sm font-bold text-text-heading placeholder:font-medium placeholder:text-muted-blue/70 outline-none transition-colors focus-visible:border-primary dark:border-surface-input-dark dark:bg-transparent dark:text-white dark:placeholder:text-muted-blue/70 ${
+					error ? "border-danger" : ""
 				}`;
 
 	return (

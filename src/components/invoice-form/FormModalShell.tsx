@@ -19,9 +19,9 @@ export default function FormModalShell({
 			align="start"
 			justify="start"
 			containerClassName="p-0 lg:pl-0"
-			panelClassName="flex h-full w-full max-w-[616px] flex-col overflow-hidden rounded-none bg-surface-card shadow-[0_25px_40px_rgba(0,0,0,0.18)] dark:bg-surface-card-dark lg:max-w-[616px]"
+			panelClassName="flex h-full w-full max-w-[616px] flex-col overflow-hidden rounded-none bg-surface-card shadow-[0_25px_40px_rgba(0,0,0,0.18)] dark:bg-surface-card-dark lg:max-w-[616px] rounded-r-[20px] "
 		>
-			<header className="flex shrink-0 items-center justify-between gap-4 border-b border-black/5 px-5 py-4 dark:border-white/10 md:px-8 md:py-5">
+			<header className="flex shrink-0 items-center justify-between gap-4 px-5 py-4 dark:border-white/10 md:px-14 md:py-5">
 				<h1
 					id="invoice-form-dialog-title"
 					className="text-lg font-bold tracking-tight text-text-heading dark:text-white md:text-xl"
@@ -36,7 +36,7 @@ export default function FormModalShell({
 					Close
 				</button>
 			</header>
-			<div className="no-scrollbar min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-6 md:px-8 md:py-8">
+			<div className="min-h-0 flex-1 px-5 py-6 md:px-14 md:py-8">
 				{children}
 			</div>
 		</ModalShell>

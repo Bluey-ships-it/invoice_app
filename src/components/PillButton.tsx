@@ -8,6 +8,7 @@ interface PillButtonProps {
 	variant?: PillButtonVariant;
 	disabled?: boolean;
 	className?: string;
+	type?: "button" | "submit" | "reset";
 }
 
 const variantStyles: Record<PillButtonVariant, string> = {
@@ -23,9 +24,11 @@ const PillButton: React.FC<PillButtonProps> = ({
 	variant = "default",
 	disabled = false,
 	className = "",
+	type = "button",
 }) => {
 	return (
 		<button
+			type={type}
 			onClick={onClick}
 			disabled={disabled}
 			className={`

@@ -1,6 +1,6 @@
 import TextField from "../form/TextField";
-import Trash from "../icons/Trash";
 import { lineItemTotal } from "../../utils/invoicePayload";
+import Bin from "../icons/Bin";
 
 export type ItemRowData = {
 	name: string;
@@ -88,7 +88,7 @@ export default function ItemRow({
 					className="flex h-12 w-8 items-center justify-center rounded-lg text-muted-blue transition-opacity hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-30 dark:text-muted"
 					aria-label="Remove item"
 				>
-					<Trash />
+					<Bin/>
 				</button>
 			</div>
 		</div>

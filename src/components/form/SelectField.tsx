@@ -38,8 +38,8 @@ export default function SelectField<T extends string>({
 					onChange={(e) => onChange(e.target.value as T)}
 					aria-invalid={Boolean(error)}
 					aria-describedby={error ? `${id}-error` : undefined}
-					className={`h-12 w-full cursor-pointer appearance-none rounded-lg border bg-surface-input-dark/5 px-4 pr-10 text-sm font-bold text-text-heading outline-none transition-colors focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 dark:bg-surface-input-dark dark:text-white ${
-						error ? "border-danger bg-danger/5" : "border-transparent"
+					className={`h-12 w-full cursor-pointer appearance-none rounded-lg border border-muted bg-transparent px-4 pr-10 text-sm font-bold text-text-heading outline-none transition-colors focus-visible:border-primary dark:border-surface-input-dark dark:bg-transparent dark:text-white ${
+						error ? "border-danger" : ""
 					}`}
 				>
 					{options.map((opt) => (
