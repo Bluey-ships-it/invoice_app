@@ -53,3 +53,22 @@ html.dark body {
   background-color: var(--color-surface-dark);
   color: var(--color-muted);
 }
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-number-spinner::-webkit-outer-spin-button,
+.no-number-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.no-number-spinner[type="number"] {
+  -moz-appearance: textfield;
+}

@@ -1,9 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import AnlgeLeft from "./icons/AnlgeLeft";
 
 export default function GoBack() {
+	const navigate = useNavigate();
 	return (
-		<button className="flex gap-6 items-center">
-			<AnlgeLeft /> <span>Go Back</span>
+		<button
+			type="button"
+			onClick={() => navigate(-1)}
+			className="flex cursor-pointer gap-6 items-center"
+		>
+			<AnlgeLeft /> <span className="font-bold text-[15px]">Go Back</span>
 		</button>
 	);
 }
