@@ -1,5 +1,4 @@
 import FormSection from "../form/FormSection";
-import ResponsiveFieldRow from "../form/ResponsiveFieldRow";
 import TextField from "../form/TextField";
 import type { InvoiceFormValues } from "../../utils/invoicePayload";
 
@@ -41,7 +40,7 @@ export default function BillToSection({
 				error={errors.billToStreetAddress}
 				placeholder="e.g. 84 Church Way"
 			/>
-			<ResponsiveFieldRow className="sm:grid-cols-3">
+			<div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
 				<TextField
 					id="billTo-city"
 					label="City"
@@ -65,8 +64,9 @@ export default function BillToSection({
 					onChange={(country) => onChange({ country })}
 					error={errors.billToCountry}
 					placeholder="e.g. United Kingdom"
+					className="col-span-2 sm:col-span-1"
 				/>
-			</ResponsiveFieldRow>
+			</div>
 		</FormSection>
 	);
 }

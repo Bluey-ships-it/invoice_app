@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState } from "react";
+import { motion } from "motion/react";
 import InvoiceContainer from "../components/Invoices";
 import PageHeader from "../components/PageHeader";
 import { useInvoices } from "../context/InvoicesContext";
@@ -22,7 +23,11 @@ export default function Invoices() {
 	}, [invoices, statusFilter]);
 
 	return (
-		<section>
+		<motion.section
+			initial={{ opacity: 0, y: 8 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.2, ease: "easeOut" }}
+		>
 			<PageHeader
 				displayCount={filteredInvoices.length}
 				statusFilterSelected={statusFilter}
@@ -32,6 +37,6 @@ export default function Invoices() {
 				invoices={filteredInvoices}
 				totalStoredCount={invoices.length}
 			/>
-		</section>
+		</motion.section>
 	);
 }

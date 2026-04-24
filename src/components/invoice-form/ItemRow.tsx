@@ -33,18 +33,18 @@ export default function ItemRow({
 	const baseId = `item-${index}`;
 
 	return (
-		<div className="grid grid-cols-2 gap-4 border-b border-black/5 pb-6 last:border-b-0 last:pb-0 dark:border-white/10 md:grid-cols-[214px_46px_100px_minmax(0,1fr)_32px] md:items-end">
-			<div className="col-span-2 min-w-0 md:col-span-1">
+		<div className="grid grid-cols-4 gap-3 border-b border-black/5 pb-6 last:border-b-0 last:pb-0 dark:border-white/10 md:grid-cols-[214px_46px_100px_minmax(0,1fr)_32px] md:items-end md:gap-4">
+			<div className="col-span-4 min-w-0 md:col-span-1">
 				<TextField
 					id={`${baseId}-name`}
-					label="Item Name"
+					label="Description"
 					value={row.name}
 					onChange={(name) => onChange({ name })}
 					error={nameError}
 					placeholder="e.g. Banner Design"
 				/>
 			</div>
-			<div className="col-span-1 md:col-span-1">
+			<div className="col-span-1 min-w-0 md:col-span-1">
 				<TextField
 					id={`${baseId}-qty`}
 					label="Qty."
@@ -58,7 +58,7 @@ export default function ItemRow({
 					placeholder="1"
 				/>
 			</div>
-			<div className="col-span-1 md:col-span-1">
+			<div className="col-span-1 min-w-0 md:col-span-1">
 				<TextField
 					id={`${baseId}-price`}
 					label="Price"
@@ -72,7 +72,7 @@ export default function ItemRow({
 					placeholder="0.00"
 				/>
 			</div>
-			<div className="col-span-1 flex flex-col md:col-span-1">
+			<div className="col-span-1 flex min-w-0 flex-col md:col-span-1">
 				<span className="mb-2 block text-xs font-medium text-muted-blue dark:text-muted">
 					Total
 				</span>

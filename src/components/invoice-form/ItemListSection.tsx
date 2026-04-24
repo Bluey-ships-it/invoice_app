@@ -3,6 +3,7 @@ import PillButton from "../PillButton";
 import type { InvoiceFormValues } from "../../utils/invoicePayload";
 import type { ItemValidationErrors } from "../../types/invoiceForm.types";
 import ItemRow from "./ItemRow";
+import { AnimatePresence, motion } from "motion/react";
 
 type ItemListSectionProps = {
 	items: InvoiceFormValues["items"];
@@ -27,19 +28,29 @@ export default function ItemListSection({
 	return (
 		<FormSection title="Item List">
 			<div className="flex flex-col gap-6">
-				{items.map((row, index) => (
-					<ItemRow
-						key={`row-${index}`}
-						row={row}
-						index={index}
-						onChange={(patch) => onItemChange(index, patch)}
-						onRemove={() => onRemoveItem(index)}
-						canRemove={items.length > 1}
-						nameError={itemErrors[index]?.name}
-						quantityError={itemErrors[index]?.quantity}
-						priceError={itemErrors[index]?.price}
-					/>
-				))}
+				<AnimatePresence initial={false}>
+					{items.map((row, index) => (
+						<motion.div
+							key={`row-${index}`}
+							layout
+							initial={{ opacity: 0, y: 8 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: -6 }}
+							transition={{ duration: 0.18, ease: "easeOut" }}
+						>
+							<ItemRow
+								row={row}
+								index={index}
+								onChange={(patch) => onItemChange(index, patch)}
+								onRemove={() => onRemoveItem(index)}
+								canRemove={items.length > 1}
+								nameError={itemErrors[index]?.name}
+								quantityError={itemErrors[index]?.quantity}
+								priceError={itemErrors[index]?.price}
+							/>
+						</motion.div>
+					))}
+				</AnimatePresence>
 			</div>
 			<PillButton
 				label="+ Add New Item"

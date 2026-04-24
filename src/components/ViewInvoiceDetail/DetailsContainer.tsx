@@ -5,6 +5,7 @@ import StatusView from "./Status";
 import InvoiceId from "../InvoiceCard/InvoiceId";
 import InvoiceItem from "./InvoiceItem";
 import GrandTotal from "./GrandTotal";
+import { motion } from "motion/react";
 
 export default function DetailsContainer() {
 	const { id } = useParams();
@@ -23,14 +24,24 @@ export default function DetailsContainer() {
 
 	return (
 		<section>
-			<div className="md:p-8 mt-8 mb-4 md:mb-6 h-22 flex justify-between items-center bg-surface-card dark:bg-surface-card-dark rounded-lg shadow-[0px_10px_10px_-10px_rgba(72,84,159,0.10)]">
+			<motion.div
+				className="md:p-8 mt-8 mb-4 md:mb-6 h-22 flex justify-between items-center bg-surface-card dark:bg-surface-card-dark rounded-lg shadow-[0px_10px_10px_-10px_rgba(72,84,159,0.10)]"
+				initial={{ opacity: 0, y: 8 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.2, ease: "easeOut" }}
+			>
 				<StatusView status={invoice.status} />
 				<div className="hidden md:block">
 					<ActionBtns />
 				</div>
-			</div>
+			</motion.div>
 
-			<div className="bg-surface-card dark:bg-surface-card-dark  p-6 md:p-12 rounded-lg shadow-[0px_10px_10px_-10px_rgba(72,84,159,0.10)]">
+			<motion.div
+				className="bg-surface-card dark:bg-surface-card-dark  p-6 md:p-12 rounded-lg shadow-[0px_10px_10px_-10px_rgba(72,84,159,0.10)]"
+				initial={{ opacity: 0, y: 8 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.2, ease: "easeOut", delay: 0.04 }}
+			>
 				<div className=" text-muted-blue dark:text-muted md:flex md:justify-between">
 					<span className="flex flex-col mb-7.5">
 						<InvoiceId id={invoice.id} />
@@ -107,7 +118,7 @@ export default function DetailsContainer() {
 					</div>
 					<GrandTotal total={grandTotal} />
 				</div>
-			</div>
+			</motion.div>
 		</section>
 	);
 }

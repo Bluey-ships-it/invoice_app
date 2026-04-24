@@ -9,7 +9,7 @@ export default function GoBack() {
 			onClick={() => navigate(-1)}
 			className="flex cursor-pointer gap-6 items-center"
 		>
-			<AnlgeLeft /> <span className="font-bold text-[15px]">Go Back</span>
+			<AnlgeLeft /> <span className="font-bold text-[15px]">Go back</span>
 		</button>
 	);
 }

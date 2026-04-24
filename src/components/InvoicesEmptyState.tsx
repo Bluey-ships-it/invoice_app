@@ -1,6 +1,13 @@
+import { motion } from "motion/react";
+
 export default function InvoicesEmptyState() {
 	return (
-		<div className="text-center flex flex-col items-center gap-10.5 md:gap-16.5">
+		<motion.div
+			className="text-center flex flex-col items-center gap-10.5 md:gap-16.5"
+			initial={{ opacity: 0, y: 8 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.25, ease: "easeOut" }}
+		>
 			<img
 				src="/images/shared/empty_state.svg"
 				alt="girl in envelope holding a megaphone"
@@ -18,6 +25,6 @@ export default function InvoicesEmptyState() {
 					button and get started
 				</p>
 			</div>
-		</div>
+		</motion.div>
 	);
 }

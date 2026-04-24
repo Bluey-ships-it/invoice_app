@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { motion } from "motion/react";
 
 type ModalShellProps = {
 	open?: boolean;
@@ -33,16 +34,26 @@ export default function ModalShell({
 			aria-modal="true"
 			aria-labelledby={ariaLabelledBy}
 		>
-			<button
+			<motion.button
 				type="button"
 				aria-label="Close modal"
 				className="absolute inset-0 bg-black/45"
 				onClick={onClose}
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ duration: 0.2, ease: "easeOut" }}
 			/>
 			<div
 				className={`pointer-events-none relative z-10 flex h-full w-full ${alignmentClass} ${justifyClass}`}
 			>
-				<div className={`pointer-events-auto ${panelClassName}`}>{children}</div>
+				<motion.div
+					className={`pointer-events-auto ${panelClassName}`}
+					initial={{ opacity: 0, x: -16 }}
+					animate={{ opacity: 1, x: 0 }}
+					transition={{ duration: 0.24, ease: "easeOut" }}
+				>
+					{children}
+				</motion.div>
 			</div>
 		</div>
 	);

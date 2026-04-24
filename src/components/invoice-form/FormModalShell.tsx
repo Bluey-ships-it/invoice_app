@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import ModalShell from "../ModalShell";
+import GoBack from "../GoBack";
 
 type FormModalShellProps = {
 	title: string;
@@ -21,20 +22,16 @@ export default function FormModalShell({
 			containerClassName="p-0 lg:pl-0"
 			panelClassName="flex h-full w-full max-w-[616px] flex-col overflow-hidden rounded-none bg-surface-card shadow-[0_25px_40px_rgba(0,0,0,0.18)] dark:bg-surface-card-dark lg:max-w-[616px] rounded-r-[20px] "
 		>
-			<header className="flex shrink-0 items-center justify-between gap-4 px-5 py-4 dark:border-white/10 md:px-14 md:py-5">
+			<header className="flex shrink-0 flex-col items-start gap-6 px-5 py-4 dark:border-white/10 md:px-14 md:py-5">
+				<div className="md:hidden">
+					<GoBack />
+				</div>
 				<h1
 					id="invoice-form-dialog-title"
 					className="text-lg font-bold tracking-tight text-text-heading dark:text-white md:text-xl"
 				>
 					{title}
 				</h1>
-				<button
-					type="button"
-					onClick={onClose}
-					className="rounded-lg px-3 py-2 text-sm font-bold text-muted-blue dark:text-muted md:hidden"
-				>
-					Close
-				</button>
 			</header>
 			<div className="min-h-0 flex-1 px-5 py-6 md:px-14 md:py-8">
 				{children}

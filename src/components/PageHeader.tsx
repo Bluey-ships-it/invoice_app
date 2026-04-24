@@ -1,6 +1,7 @@
 import type { InvoiceStatus } from "../types/invoice.types";
 import InvoiceFilter from "./InvoiceFilter";
 import NewInvoiceBtn from "./NewInvoiceBtn";
+import { motion } from "motion/react";
 
 type PageHeaderProps = {
 	displayCount: number;
@@ -18,7 +19,12 @@ export default function PageHeader({
 	const filterActive = statusFilterSelected.length > 0;
 
 	return (
-		<div className="flex justify-between mb-9 md:mb-13.75 lg:mb-16">
+		<motion.div
+			className="flex justify-between mb-9 md:mb-13.75 lg:mb-16"
+			initial={{ opacity: 0, y: 6 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.2, ease: "easeOut" }}
+		>
 			<div className=" ">
 				<h1 className="font-bold text-text-heading dark:text-white text-2xl">
 					Invoices
@@ -39,6 +45,6 @@ export default function PageHeader({
 				/>
 				<NewInvoiceBtn />
 			</div>
-		</div>
+		</motion.div>
 	);
 }
